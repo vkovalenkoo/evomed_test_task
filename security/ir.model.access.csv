@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+evomed_test_task.access_hr_employee_position,access_hr_employee_position,evomed_test_task.model_hr_employee_position,base.group_user,1,0,0,0
