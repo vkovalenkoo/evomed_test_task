@@ -1,0 +1,18 @@
+<odoo>
+    <record id="employee_manager" model="hr.employee">
+        <field name="name">Tim Kimko</field>
+        <field name="job_id" ref="job_manager"/>
+        <field name="department_id" ref="department_it"/>
+    </record>
+    <record id="employee_developer" model="hr.employee">
+        <field name="name">Sasha Limko</field>
+        <field name="job_id" ref="job_developer"/>
+        <field name="department_id" ref="department_it"/>
+        <field name="leave_manager_id" ref="base.user_admin"/>
+    </record>
+        <record id="employee_developer_2" model="hr.employee">
+        <field name="name">Georg Ghambu</field>
+        <field name="job_id" ref="job_developer"/>
+        <field name="department_id" ref="department_it"/>
+    </record>
+</odoo>

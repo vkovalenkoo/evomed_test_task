@@ -1,0 +1,5 @@
+<odoo>
+        <record id="hr_contract_type_employee" model="hr.contract.type">
+        <field name="name">Employee Contract</field>
+    </record>
+</odoo>

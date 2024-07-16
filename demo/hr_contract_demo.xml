@@ -1,0 +1,27 @@
+<odoo>
+    <!-- Demo data for hr.contract -->
+    <record id="contract_manager" model="hr.contract">
+        <field name="name">Contract Manager</field>
+        <field name="employee_id" ref="employee_manager"/>
+        <field name="job_id" ref="job_manager"/>
+        <field name="date_start">2024-01-01</field>
+        <field name="date_end">2024-12-31</field>
+        <field name="resource_calendar_id" ref="resource_calendar_standard"/>
+        <field name="wage">5000</field>
+        <field name="state">open</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="contract_type_id" ref="hr_contract_type_employee"/>
+    </record>
+    <record id="contract_developer" model="hr.contract">
+        <field name="name">Contract Developer</field>
+        <field name="employee_id" ref="employee_developer"/>
+        <field name="job_id" ref="job_developer"/>
+        <field name="date_start">2024-02-01</field>
+        <field name="date_end">2024-12-31</field>
+        <field name="resource_calendar_id" ref="resource_calendar_standard"/>
+        <field name="wage">4000</field>
+        <field name="state">open</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="contract_type_id" ref="hr_contract_type_employee"/>
+    </record>
+</odoo>

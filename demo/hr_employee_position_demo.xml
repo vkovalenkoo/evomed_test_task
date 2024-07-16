@@ -1,0 +1,19 @@
+<odoo>
+        <record id="employee_position_manager" model="hr.employee.position">
+        <field name="employee_id" ref="employee_manager"/>
+        <field name="department_id" ref="department_it"/>
+        <field name="job_position_id" ref="job_manager"/>
+        <field name="date_start">2024-01-01</field>
+        <field name="date_end">2024-12-31</field>
+        <field name="manager_id" ref="employee_manager"/>
+    </record>
+    <record id="employee_position_developer" model="hr.employee.position">
+        <field name="employee_id" ref="employee_developer"/>
+        <field name="department_id" ref="department_it"/>
+        <field name="job_position_id" ref="job_developer"/>
+        <field name="date_start">2024-02-01</field>
+        <field name="date_end">2024-12-31</field>
+        <field name="manager_id" ref="employee_manager"/>
+        <field name="coach_id" ref="employee_manager"/>
+    </record>
+</odoo>

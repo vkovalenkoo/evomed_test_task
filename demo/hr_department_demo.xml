@@ -1,0 +1,8 @@
+<odoo>
+    <record id="department_it" model="hr.department">
+        <field name="name">IT</field>
+    </record>
+    <record id="department_hr" model="hr.department">
+        <field name="name">HR</field>
+    </record>
+</odoo>
