@@ -1,0 +1,114 @@
+<odoo>
+    <data>
+        <record id="view_employee_form_custom" model="ir.ui.view">
+            <field name="name">hr.employee.form.custom</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <!-- TODO: Transform fields 1.1 -->
+                <xpath expr="//group//field[@name='work_email']" position="after">
+                    <field name="address_id"
+                           context="{'show_address': 1}"
+                           options='{"highlight_first_line": True}'
+                    />
+                </xpath>
+                <xpath expr="//page[@name='public']//field[@name='address_id']" position="replace"/>
+                <xpath expr="//page[@name='public']//field[@name='tz']" position="replace"/>
+
+
+                <!-- TODO: Hide fields 1.3 -->
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='job_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='coach_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- TODO: Transform fields 1.4 -->
+                <xpath expr="//field[@name='coach_id']" position="after">
+                    <field name="company_id"/>
+                    <field name="tz" required="id"/>
+                    <field name="is_pension_fund_tax"/>
+                </xpath>
+
+                <!-- TODO: Display the same view as Resume section 2.4 -->
+                <xpath expr="//page[@name='skills_resume']" position="before">
+                    <page name="employee_position" string="Positions">
+                        <div class="row">
+                            <div class="o_hr_position_group o_group_position col-lg-7 d-flex flex-column">
+                                <separator string="Position" class="mb-4"/>
+                                <field mode="tree" nolabel="1" name="employee_position_ids" widget="position_one2many">
+                                    <tree>
+                                        <field name="employee_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="job_position_id"/>
+                                        <field name="department_id"/>
+                                    </tree>
+                                </field>
+                            </div>
+                            <div class="o_hr_skills_editable o_hr_skills_group o_group_skills col-lg-5 d-flex flex-column">
+                                <field mode="tree" nolabel="1" name="employee_skill_ids" widget="skills_one2many"
+                                       class="mt-2">
+                                    <tree>
+                                        <field name="skill_id"/>
+                                        <field name="skill_level_id"/>
+                                        <field name="level_progress" widget="progressbar"/>
+                                        <field name="skill_type_id" optional="hidden"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </div>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!--   TODO: Task 3     -->
+        <record id="view_hr_employee_position_form" model="ir.ui.view">
+            <field name="name">hr.employee.position.form</field>
+            <field name="model">hr.employee.position</field>
+            <field name="arch" type="xml">
+                <form string="Employee Position">
+                    <group string="Position">
+                        <group>
+                            <field name="employee_id" invisible="1"/>
+                            <field name="department_id"/>
+                            <field name="manager_id"/>
+                            <field name="coach_id"/>
+                            <field name="job_position_id"/>
+                        </group>
+                        <group>
+                            <field name="employee_type"/>
+                            <field name="current_contract_id"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <group string="Approvers">
+                        <field name="vacation_direct_supervisor_id" string="Vacation (Direct Supervisor)"/>
+                        <field name="vacation_hr_manager_id" string="Vacation (HR Manager)"/>
+                        <field name="expenses_id"/>
+                    </group>
+                    <group string="Work Information">
+                        <field name="work_location"/>
+                        <field name="working_hours" readonly="1"/>
+                    </group>
+                    <group string="Vacation">
+                        <field name="total_vacation_days"/>
+                        <field name="used_vacation_days"/>
+                        <field name="rest_vacation_days"/>
+                        <field name="note"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
