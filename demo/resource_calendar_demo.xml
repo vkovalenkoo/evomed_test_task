@@ -1,0 +1,10 @@
+<odoo>
+    <record id="resource_calendar_standard" model="resource.calendar">
+        <field name="name">Standard 40 hours/week</field>
+        <field name="attendance_ids" eval="[(0, 0, {'name': 'Monday', 'hour_from': 8.0, 'hour_to': 17.0, 'dayofweek': '0'}),
+                                             (0, 0, {'name': 'Tuesday', 'hour_from': 8.0, 'hour_to': 17.0, 'dayofweek': '1'}),
+                                             (0, 0, {'name': 'Wednesday', 'hour_from': 8.0, 'hour_to': 17.0, 'dayofweek': '2'}),
+                                             (0, 0, {'name': 'Thursday', 'hour_from': 8.0, 'hour_to': 17.0, 'dayofweek': '3'}),
+                                             (0, 0, {'name': 'Friday', 'hour_from': 8.0, 'hour_to': 17.0, 'dayofweek': '4'})]"/>
+    </record>
+</odoo>
